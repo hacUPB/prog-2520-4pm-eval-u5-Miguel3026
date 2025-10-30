@@ -4,6 +4,7 @@ import csv
 import math
 import matplotlib.pyplot as plt
 
+#.txt
 
 def contar_palabras_y_caracteres(nombre_archivo):
     try:
@@ -57,7 +58,7 @@ def histograma_vocales(nombre_archivo):
 
 
 
-
+#.CSV
 
 def mostrar_primeras_filas(nombre_archivo):
     try:
