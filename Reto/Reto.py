@@ -91,7 +91,7 @@ def histograma_vocales(archivo):
             conteos.append(cantidad)
 
         # Mostramos conteo usando range()
-        print("\nConteo de vocales:")
+        print("Conteo de vocales:")
         for i in range(len(vocales)):
             print(f"{vocales[i]}: {conteos[i]}")
 
