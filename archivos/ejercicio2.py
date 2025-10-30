@@ -1,0 +1,8 @@
+fichero = open("C:\Users\migue\OneDrive\Desktop","r")
+linea = fichero.readline()
+print(linea)
+linea = fichero.readline()
+print(linea)
+linea = fichero.readline()
+print(linea)
+fichero.close()
