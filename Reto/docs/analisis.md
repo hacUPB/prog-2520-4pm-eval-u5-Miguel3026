@@ -16,15 +16,15 @@ Se implementan condicionales (if, elif, else) para controlar el flujo del progra
 Los bucles while permiten mantener activo el menú hasta que el usuario elija salir.
 También se utiliza el control de excepciones (try-except) para validar entradas del usuario y errores.
 
-## 3. Funciones y modularidad
+## 3. Funciones
 
-El código está dividido en funciones independientes, lo que hace que sea mas practico y manejable:
+- El código está dividido en funciones independientes, lo que hace que sea mas practico y manejable:
 
-Funciones específicas para archivos .txt: contar_palabras_y_caracteres, reemplazar_palabra, histograma_vocales.
+- Funciones específicas para archivos .txt: contar_palabras_y_caracteres, reemplazar_palabra, histograma_vocales.
 
-Funciones para archivos .csv: mostrar_primeras_filas, calcular_estadisticas, graficar_columna.
+- Funciones para archivos .csv: mostrar_primeras_filas, calcular_estadisticas, graficar_columna.
 
-Menús organizados en funciones: submenu_txt, submenu_csv, y main.
+- Menús organizados en funciones: submenu_txt, submenu_csv, y main.
 
 
 
@@ -38,7 +38,7 @@ Menús organizados en funciones: submenu_txt, submenu_csv, y main.
 
 - En la función graficar_columna, se usa un diccionario para agrupar valores por rangos.
 
-## 5. Librerías externas y matemáticas
+## 5. Graficas y matemáticas
 
 - Se usa el módulo math para calcular la desviación estándar.
 
