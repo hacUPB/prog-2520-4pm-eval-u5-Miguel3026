@@ -4,8 +4,8 @@ import csv
 import math
 import matplotlib.pyplot as plt
 # Archivos elegidos para el reto
-ARCHIVO_TXT = "datosm.txt"
-ARCHIVO_CSV = "matriculas.csv"
+ARCHIVO_TXT = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\datosm.txt"
+ARCHIVO_CSV = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\matriculas.csv"
 
 def listar_archivos(ruta):
     """Lista archivos en la ruta dada (ruta='' para ruta actual)."""
@@ -121,8 +121,8 @@ def histograma_vocales(ruta_archivo):
     plt.show()
 
 # ----------------------------
-# Funciones para .csv
-# ----------------------------
+# .csv
+
 
 def mostrar_primeras_filas_csv(ruta_archivo, n=15):
     """Muestra las n primeras filas de un CSV (incluye encabezado si existe)."""
@@ -287,7 +287,7 @@ def graficar_columna_csv(ruta_archivo, nombre_columna):
         return
 
     # pedir color y título al usuario
-    titulo = input("Ingrese el título para la gráfica (o presione Enter para título por defecto): ")
+    titulo = input("Ingrese el título para la gráfica (o presione Enter para título aleatorio): ")
     if titulo.strip() == '':
         titulo = "Dispersión de " + nombre_columna
     eje_x = input("Nombre del eje X (Enter para 'Índice'):")
@@ -355,13 +355,13 @@ def graficar_columna_csv(ruta_archivo, nombre_columna):
     plt.tight_layout()
     plt.show()
 
-# ----------------------------
+# ------------------------------------------------------------------------------------------------------
 # Menús
-# ----------------------------
+
 
 def submenu_txt(ruta):
     while True:
-        print("\n--- Submenú .txt ---")
+        print("Submenú .txt ")
         print("Archivo cargado:", ruta)
         print("1. Contar número de palabras y caracteres")
         print("2. Reemplazar una palabra por otra")
@@ -384,7 +384,7 @@ def submenu_txt(ruta):
 
 def submenu_csv(ruta):
     while True:
-        print("\n--- Submenú .csv ---")
+        print("Submenú .csv ")
         print("Archivo cargado:", ruta)
         print("1. Mostrar las 15 primeras filas")
         print("2. Calcular estadísticas de una columna")
@@ -418,7 +418,7 @@ def main():
     print("=== Aplicación CLI de Análisis y Graficación (Unidad 5) ===")
 
     while True:
-        print("\nMenú Principal")
+        print("Menú Principal")
         print("1. Listar archivos en la ruta actual o ingresar una ruta")
         print("2. Procesar archivo de texto (.txt)")
         print("3. Procesar archivo separado por comas (.csv)")
