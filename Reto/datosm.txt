@@ -1,0 +1,2 @@
+ La aplicación validará los datos cargados y realizará análisis estadísticos utilizando
+  estructuras de datos básicas, además de generar visualizaciones con la biblioteca Matplotlib.
