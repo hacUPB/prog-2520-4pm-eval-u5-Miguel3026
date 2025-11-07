@@ -4,28 +4,28 @@ import csv
 import math
 import matplotlib.pyplot as plt
 # Archivos elegidos para el reto
-ARCHIVO_TXT = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\datosm.txt"
-ARCHIVO_CSV = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\matriculas.csv"
+archivo_datos_txt = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\datosm.txt"
+archivo_matriculas_csv = "C:\\Users\\migue\\Documents\\programacion\\prog-2520-4pm-eval-u5-Miguel3026\\Reto\\matriculas.csv"
 
 def listar_archivos(ruta):
-    """Lista archivos en la ruta dada (ruta='' para ruta actual)."""
+    # Lista archivos en la ruta dada (ruta='' para la ruta actual).
     try:
         if ruta == '':
             ruta = os.getcwd()
         nombres = os.listdir(ruta)
-        print("\nArchivos en:", ruta)
+        print("Archivos en:", ruta)
         for nombre in nombres:
             print(" -", nombre)
     except Exception as e:
         print("Error al listar archivos:", e)
 
-# .txt
+# .txt-----------------------------------------------------------------------------------------------
 
 
 def contar_palabras_caracteres(ruta_archivo):
-    """Cuenta palabras, caracteres (con y sin espacios) en un archivo de texto."""
+    #Cuenta palabras, caracteres (con y sin espacios) en un archivo de texto.
     try:
-        with open(ruta_archivo, 'r', encoding='utf-8') as f:
+        with open(ruta_archivo, 'r') as f:
             contenido = f.read()
     except Exception as e:
         print("No se pudo abrir el archivo:", e)
@@ -64,9 +64,9 @@ def contar_palabras_caracteres(ruta_archivo):
     print(" - Caracteres (sin espacios):", chars_sin)
 
 def reemplazar_palabra(ruta_archivo, palabra_buscar, palabra_reemplazo):
-    """Reemplaza todas las ocurrencias exactas de palabra_buscar por palabra_reemplazo en el archivo."""
+    #Reemplaza todas las ocurrencias exactas de palabra_buscar por palabra_reemplazo en el archivo.
     try:
-        with open(ruta_archivo, 'r', encoding='utf-8') as f:
+        with open(ruta_archivo, 'r' ) as f:
             contenido = f.read()
     except Exception as e:
         print("No se pudo abrir el archivo:", e)
@@ -76,16 +76,16 @@ def reemplazar_palabra(ruta_archivo, palabra_buscar, palabra_reemplazo):
     contenido_nuevo = contenido.replace(palabra_buscar, palabra_reemplazo)
 
     try:
-        with open(ruta_archivo, 'w', encoding='utf-8') as f:
+        with open(ruta_archivo, 'w') as f:
             f.write(contenido_nuevo)
         print("Reemplazo completado y guardado en el mismo archivo.")
     except Exception as e:
         print("No se pudo guardar el archivo:", e)
 
 def histograma_vocales(ruta_archivo):
-    """Cuenta ocurrencias de vocales y muestra histograma con matplotlib."""
+    # Cuenta ocurrencias de vocales y muestra histograma con matplotlib.
     try:
-        with open(ruta_archivo, 'r', encoding='utf-8') as f:
+        with open(ruta_archivo, 'r') as f:
             contenido = f.read()
     except Exception as e:
         print("No se pudo abrir el archivo:", e)
@@ -115,7 +115,7 @@ def histograma_vocales(ruta_archivo):
     # Graficar (histograma de barras)
     plt.figure()
     plt.bar(vocales, conteos)
-    plt.title("Ocurrencia de vocales")
+    plt.title("vocales")
     plt.xlabel("Vocal")
     plt.ylabel("Cantidad")
     plt.show()
@@ -125,9 +125,9 @@ def histograma_vocales(ruta_archivo):
 
 
 def mostrar_primeras_filas_csv(ruta_archivo, n=15):
-    """Muestra las n primeras filas de un CSV (incluye encabezado si existe)."""
+    # Muestra las n primeras filas de un CSV (incluye encabezado si existe).
     try:
-        with open(ruta_archivo, 'r', encoding='utf-8', newline='') as csvfile:
+        with open(ruta_archivo, 'r', newline='') as csvfile:
             lector = csv.reader(csvfile)
             fila_num = 0
             for fila in lector:
@@ -139,7 +139,7 @@ def mostrar_primeras_filas_csv(ruta_archivo, n=15):
         print("Error leyendo CSV:", e)
 
 def seleccionar_columna_por_nombre(filas, nombre_columna):
-    """Dado un listado de filas (la primera fila es encabezados), devuelve índice de columna o -1."""
+    # Dado un listado de filas (la primera fila es encabezados)
     if len(filas) == 0:
         return -1
     encabezado = filas[0]
@@ -151,7 +151,7 @@ def seleccionar_columna_por_nombre(filas, nombre_columna):
     return -1
 
 def calcular_estadisticas_csv(ruta_archivo, nombre_columna):
-    """Calcula conteo, promedio, mediana, desviación estándar, max y min para una columna numérica."""
+    # Calcula conteo, promedio, mediana, desviación estándar, max y min para una columna numérica.
     try:
         with open(ruta_archivo, 'r', encoding='utf-8', newline='') as csvfile:
             lector = csv.reader(csvfile)
@@ -243,7 +243,7 @@ def calcular_estadisticas_csv(ruta_archivo, nombre_columna):
     return resultados
 
 def graficar_columna_csv(ruta_archivo, nombre_columna):
-    """Grafica la columna seleccionada como scatter. Además intenta reordenar otra columna para hacer un gráfico de barras."""
+    # Grafica la columna seleccionada. Además intenta reordenar otra columna para hacer un gráfico de barras.
     try:
         with open(ruta_archivo, 'r', encoding='utf-8', newline='') as csvfile:
             lector = csv.reader(csvfile)
@@ -394,7 +394,7 @@ def submenu_csv(ruta):
         if opcion == '1':
             mostrar_primeras_filas_csv(ruta, 15)
         elif opcion == '2':
-            nombre_col = input("Ingrese el nombre exacto de la columna (encabezado): ")
+            nombre_col = input("Ingrese el nombre de la columna (encabezado): ")
             res = calcular_estadisticas_csv(ruta, nombre_col)
             if res is not None:
                 print("Resultados estadísticos para columna:", nombre_col)
@@ -405,7 +405,7 @@ def submenu_csv(ruta):
                 print(" - Min  :", res['min'])
                 print(" - Max  :", res['max'])
         elif opcion == '3':
-            nombre_col = input("Ingrese el nombre exacto de la columna a graficar: ")
+            nombre_col = input("Ingrese el nombre de la columna a graficar: ")
             graficar_columna_csv(ruta, nombre_col)
         elif opcion == '4':
             break
@@ -414,14 +414,14 @@ def submenu_csv(ruta):
 
 
 def main():
- 
-    print("=== Aplicación CLI de Análisis y Graficación (Unidad 5) ===")
+
+    print("Análisis y Graficación (Unidad 5)")
 
     while True:
         print("Menú Principal")
         print("1. Listar archivos en la ruta actual o ingresar una ruta")
-        print("2. Procesar archivo de texto (.txt)")
-        print("3. Procesar archivo separado por comas (.csv)")
+        print("2. Procesar archivo de texto (datosm.txt)")
+        print("3. Procesar archivo separado por comas (matriculas.csv)")
         print("4. Salir")
 
         opcion = input("Elija una opción: ").strip()
@@ -431,15 +431,15 @@ def main():
             listar_archivos(ruta)
 
         elif opcion == '2':
-            print("\nSe abrirá automáticamente el archivo de texto predeterminado:", ARCHIVO_TXT)
-            submenu_txt(ARCHIVO_TXT)
+            print("\nSe abrirá automáticamente el archivo de texto predeterminado:", archivo_datos_txt)
+            submenu_txt(archivo_datos_txt)
 
         elif opcion == '3':
-            print("\nSe abrirá automáticamente el archivo CSV predeterminado:", ARCHIVO_CSV)
-            submenu_csv(ARCHIVO_CSV)
+            print("\nSe abrirá automáticamente el archivo CSV predeterminado:", archivo_matriculas_csv)
+            submenu_csv(archivo_matriculas_csv)
 
         elif opcion == '4':
-            print("Saliendo. ¡Hasta luego!")
+            print("Saliendo. Hasta luego!")
             break
 
         else:
